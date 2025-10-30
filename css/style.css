@@ -1,0 +1,505 @@
+/* ===========================================================
+   ΒΗΜΑ 0 — ΓΕΝΙΚΕΣ ΔΙΟΡΘΩΣΕΙΣ ΓΙΑ ΟΡΙΖΟΝΤΙΟ SCROLL & MEDIA
+   =========================================================== */
+
+/* Κόβουμε οποιοδήποτε οριζόντιο overflow από τη σελίδα */
+html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+
+/* Όλα τα media δεν επιτρέπεται να «ξεχειλώνουν» το πλάτος */
+img, video, iframe { max-width: 100%; height: auto; display: block; }
+
+/* Μικρή προστασία σε κύρια wrappers/sections ώστε να μην προκαλούν scroll */
+main, .wrapper, .ps-page, .hero, .row, .ps-section { overflow-x: clip; }
+
+/*===========================================================
+  ΑΡΧΙΚΗ — background
+  =========================================================== */
+
+html, body { min-height: 100%; }           /* Καλύπτει πλήρως το viewport */
+body { position: relative; background: #0f1418; }  /* Fallback φόντο */
+
+body::before {
+  content: "";
+  position: fixed;          /* Παραμένει σταθερό στο scroll */
+  inset: 0;                 /* top/right/bottom/left: 0 */
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("../media/background.webp") center / cover no-repeat;
+  z-index: -1;              /* Πίσω από όλο το περιεχόμενο */
+}
+
+/* ===========================================================
+   UNCHARTED MOVIE — Ξεχωριστό background
+   =========================================================== */
+.movie-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/Background_Movie.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED 1 — Ξεχωριστό background
+   =========================================================== */
+.uncharted1::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/Ucharted1Background.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED 2 — Ξεχωριστό background
+   =========================================================== */
+.uncharted2::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/Ucharted2Background.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED 3 — Ξεχωριστό background
+   =========================================================== */
+.uncharted3::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/Ucharted3Background.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED 4 — Ξεχωριστό background
+   =========================================================== */
+.uncharted4::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/Ucharted4Background.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED LOST LEGACY — Ξεχωριστό background
+   =========================================================== */
+.unchartedL::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/UchartedLBackground.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED LOST LEGACY — Ξεχωριστό background
+   =========================================================== */
+.unchartedA::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/UchartedABackground.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ===========================================================
+   UNCHARTED COLLECTION— Ξεχωριστό background
+   =========================================================== */
+.unchartedC::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../media/backgroundCollection.webp") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* ==========================================
+   ΓΡΑΜΜΑΤΟΣΕΙΡΕΣ PLAYFAIR + CORMORANT
+   ========================================== */
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Bold.ttf") format("truetype");
+  font-weight: 400; font-style: normal;
+}
+
+.colorGold{
+  color:#b38d48;
+}
+/* Εφαρμογή γραμματοσειρών */
+.hero-title, h1, h2, nav a {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+body, p, .hero-text, a, .btn, li, table {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ===== Uncharted theme (μεταβλητές) ===== */
+:root{
+  --nav:#0d2228; --bg:#0f1418; --text:#e8e6e3; --muted:#a7b0b4;
+  --accent:#b38d48; --card:#171d22; --stroke:#24323a;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ background:var(--bg); color:var(--text); line-height:1.65; }
+a{ color:inherit; text-decoration:none; }
+.container{ max-width:1100px; margin:0 auto; padding:24px; }
+.h1{ font-size:40px; margin:12px 0 6px; }
+.h2{ font-size:26px; margin-bottom:6px; }
+.lead{ color:var(--muted); max-width:70ch; }
+
+/* ==========================
+   HERO (Αριστερά κείμενο / Δεξιά εικόνα)
+   ========================== */
+.hero {
+  display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center;
+  background: rgba(38, 32, 20, 0.55);
+  border: 1px solid #b38d48; border-radius: 24px;
+  padding: 38px; box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  margin-bottom: 30px; backdrop-filter: blur(6px);
+}
+.hero-title { font-size: 44px; line-height: 1.15; margin-bottom: 10px; }
+.hero-text  { color: #b9c5c9; max-width: 60ch; }
+.btn{
+  display:inline-block; margin-top:12px; background:var(--accent); color:#111;
+  padding:9px 14px; border-radius:10px; font-weight:700; border:1px solid #b38d48;
+}
+.hero img{
+  width:100%; border-radius:18px; border:1px solid #263843;
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
+}
+.hero.reverse { grid-template-columns: .8fr 1.2fr; }
+
+/* ==========================
+   ROWS (alternating image/text)
+   ========================== */
+.row{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center;
+  padding:26px; border-bottom:1px solid var(--stroke);
+  background:linear-gradient(180deg,rgba(23,29,34,.55),rgba(23,29,34,.25));
+  border-radius:16px; margin:18px 0;
+}
+.row.reverse{ grid-template-columns:.9fr 1.1fr; }
+.row img{
+  width:100%; border-radius:14px; object-fit:cover;
+  box-shadow:0 10px 28px rgba(0,0,0,.35); border:1px solid #1f2a30;
+}
+
+/* ==========================
+   CSS-only Lightbox
+   ========================== */
+.lb{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.92);
+     align-items:center; justify-content:center; padding:20px; z-index:100; }
+.lb:target{ display:flex; }
+.lb img{ max-width:95vw; max-height:90vh; border-radius:14px; }
+.lb .close{
+  position:absolute; top:16px; right:20px; background:var(--accent); color:#111;
+  padding:8px 12px; border-radius:10px; text-decoration:none;
+}
+
+/* ==========================
+   Footer
+   ========================== */
+footer{
+  border-top:1px solid var(--stroke); color:var(--muted);
+  text-align:center; padding:20px; margin-top:30px;
+}
+
+/* ==========================
+   Responsive (γενικά)
+   ========================== */
+@media (max-width:900px){
+  .hero{ grid-template-columns:1fr; padding:24px; }
+  .row, .row.reverse{ grid-template-columns:1fr; }
+  .hero-title{ font-size:34px; }
+}
+
+/* Μικρά helpers */
+.anchor { display:block; height:0; }
+.hero-title span { color: #b38d48; }
+
+/* ===========================================================
+   UNCHARTED PAGES (sections, tables, video)
+   =========================================================== */
+
+/* Κύριο container σελίδων παιχνιδιών */
+.ps-page {
+  max-width: 980px; margin: 40px auto; padding: 0 16px; overflow-x: clip;
+}
+
+/* Επικεφαλίδα σελίδας */
+.ps-hero { margin: 12px 0 24px; }
+.ps-title{
+  font-family:"Playfair Display", serif; color:#b38d48; font-size:2rem; margin:0 0 8px;
+}
+.ps-sub{ color:#dcdcdc; }
+
+/* Ενότητες */
+.ps-section{
+  margin:36px 0; display:block;
+  background:rgba(38,32,20,.55); border:1px solid #b38d48;
+  border-radius:24px; padding:38px; box-shadow:0 14px 40px rgba(0,0,0,.35);
+  backdrop-filter:blur(6px); color:#dcdcdc;
+}
+
+/* Bullets */
+.ps-bullets{ margin:12px 0 0 18px; }
+.ps-bullets li{ margin: 6px 0; }
+
+/* Grid 3-στηλών (Key Features) */
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.grid-3 article{
+  background:rgba(0,0,0,.25); border:1px solid #33434a;
+  border-radius:12px; padding:14px;
+}
+
+/* Πίνακας λεπτομερειών */
+.ps-table{ width:100%; border-collapse:collapse; }
+.ps-table th, .ps-table td{
+  padding:10px; border-bottom:1px solid #3b4b52; text-align:left; vertical-align:top;
+}
+.ps-table th{ width:32%; color:#cfa253; }
+
+/* YouTube (responsively) */
+.video-container{
+  position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px;
+}
+.video-container iframe{ position:absolute; top:0; left:0; width:100%; height:100%; }
+
+/* ===========================================================
+   FIXED FOOTER (UNCHARTED STYLE)
+   =========================================================== */
+.site-footer{
+  position:fixed; bottom:0; left:0; width:100%;
+  background:rgba(38,32,20,.65); border-top:1px solid #0b1a1f;
+  backdrop-filter:blur(6px); color:#c9a253; text-align:center;
+  font-family:"Cormorant Garamond", serif; font-size:.95rem; letter-spacing:.5px;
+  padding:10px 0; box-shadow:0 -2px 12px rgba(0,0,0,.4); z-index:999;
+}
+.footer-content{ display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap; }
+.site-footer span:hover{ color:#e1c37a; text-shadow:0 0 8px rgba(201,162,83,.4); transition: color .3s, text-shadow .3s; }
+
+/* ===========================================================
+   NAVBAR — Uncharted Deluxe Edition (Fixed & Stable)
+   =========================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: rgba(24,18,10,0.65);
+  border-bottom: 1px solid rgba(179,141,72,.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,.45);
+}
+
+.header { /* κρατάμε full-width header */
+  position: sticky; top: 0; z-index: 99;
+  background: rgba(24,18,10,0.65);
+  border-bottom: 1px solid rgba(179,141,72,.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,.45);
+}
+
+.nav {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px;
+  padding:16px 32px;     /* άνετο breathing space */
+  /* ΠΡΟΣΟΧΗ: Χωρίς max-width εδώ */
+}
+
+.nav .nav-menu { order:1; margin-right:auto; flex: 0 1 auto; min-width:0; }
+.brand         { order:2; margin-left:auto; white-space:nowrap; }
+.top-level     { display:flex; gap:24px; flex-wrap:nowrap; min-width:0; }
+
+
+/* === Brand === */
+.brand {
+  color: #b38d48;
+  font-weight: 900;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(179,141,72,.45);
+  white-space: nowrap;
+  transition: .3s ease;
+  order: 2;
+  margin-left: auto;
+}
+.brand:hover {
+  color: #e1c37a;
+  text-shadow: 0 0 12px rgba(201,162,83,.7);
+}
+
+/* === Λίστα επάνω === */
+.nav-menu { flex: 1; }
+.top-level {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap; /* κρατάει το μενού σε μία γραμμή */
+}
+
+/* === Dropdown === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.dropdown::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:100%;
+  height:12px;          /* «γέφυρα» hover */
+}
+
+/* === Σύνδεσμοι === */
+.nav a,
+.dropdown > .trigger {
+  color: #c9a253;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: color .25s ease, background .25s ease, text-shadow .25s ease;
+  outline: none;
+  text-decoration: none;
+  padding: 8px 12px 12px;
+}
+
+.nav a:hover,
+.dropdown > .trigger:hover {
+  color: #f5d9a3;
+  background: rgba(179,141,72,.15);
+  text-shadow: 0 0 6px rgba(201,162,83,.6);
+}
+
+.nav a.active {
+  color: #f5d9a3;
+  border-bottom: 2px solid #b38d48;
+}
+
+/* === Submenu === */
+.submenu {
+  position: absolute; 
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  margin-top: 0px;
+  padding: 8px 0;
+  list-style: none;
+  background: rgba(20,16,10,.9);
+  border: 1px solid rgba(179,141,72,.45);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 200;
+}
+
+/* === Hover/focus για εμφάνιση === */
+.dropdown:hover > .submenu,
+.dropdown:focus-within > .submenu {
+  display: flex;
+}
+
+/* === Σύνδεσμοι μέσα στο submenu === */
+.submenu a {
+  display: block;
+  padding: 10px 16px;
+  color: #e8d4a2;
+  font-weight: 600;
+  font-size: 1rem;
+  border-left: 3px solid transparent;
+  transition: background .25s, color .25s, border-color .25s;
+}
+.submenu a:hover {
+  background: rgba(179,141,72,.18);
+  color: #f5d9a3;
+  border-color: #b38d48;
+}
+
+/* === Responsive === */
+@media (max-width: 980px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .top-level {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .submenu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    border-radius: 10px;
+    background: rgba(20,16,10,.9);
+    width: 100%;
+  }
+
+  .dropdown:hover > .submenu,
+  .dropdown:focus-within > .submenu {
+    display: block;
+  }
+@media (max-width:980px){
+  .nav { justify-content: center; flex-wrap: wrap; }
+  .brand { order: 2; margin-left: 0; }
+  .nav .nav-menu { order: 1; margin-right: 0; }
+}
+
+
+}
+
+
+/*ΠΡΟΣΟΧΗ: ΈΧΕΙ ΧΡΗΣΙΜΟΠΟΙΗΘΕΙ AI ΓΙΑ ΤΗ ΣΩΣΤΗ ΔΟΜΗ ΤΩΝ ΣΧΟΛΙΩΝ ΕΠΙΣΗΣ ΕΧΕΙ ΧΡΗΣΙΜΟΠΟΙΗΘΕΙ ΓΙΑ ΜΕΤΑΦΡΑΣΗ ΑΝΤΙ ΓΙΑ GOOGLE TRANSLATE*/
